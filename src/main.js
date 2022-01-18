@@ -6,7 +6,7 @@ import firebase from 'firebase'
 // import { initializeApp } from 'firebase/app';
 
 Vue.config.productionTip = false
-
+let app = ''
 const config = {
     apiKey: "AIzaSyB4WJ_nspMyFA_zsSZ9ky_SoQiS2QOp70I",
     authDomain: "website-ecom-ff223.firebaseapp.com",
@@ -21,7 +21,12 @@ const config = {
 // const app = initializeApp(firebaseConfig);
 firebase.initializeApp(config);
 
-new Vue({
-    router,
-    render: h => h(App),
-}).$mount('#app')
+firebase.auth().onAuthStateChanged(() => {
+    if (!app) {
+
+        app = new Vue({
+            router,
+            render: h => h(App),
+        }).$mount('#app')
+    }
+})

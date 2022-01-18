@@ -1,13 +1,15 @@
 <template>
   <div class="home">
     <HelloWorld msg="Bem vindo ao seu App Vue.js"/>
-    <button>Sair</button>
+    <button @click="logout">Sair</button>
   </div>
 </template>
 
 <script> 
 
 // @ is an alias to /src
+
+import firebase from 'firebase';
 import HelloWorld from '@/components/HelloWorld.vue'
 export default {
   name: 'home',
@@ -15,11 +17,11 @@ export default {
     HelloWorld
   },
   methods: {
-    // logout: function() {
-    //   firebase.auth().signOut().then(() => {
-    //     this.$router.replace('login')
-    //   })
-    // }
+    logout: function() {
+      firebase.auth().signOut().then(() => {
+        this.$router.replace('entrar')
+      })
+    }
   }
 }
 </script>
