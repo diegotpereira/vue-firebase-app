@@ -3,7 +3,7 @@
         <h3>Entrar</h3>
         <input type="text" name="" id="" placeholder="Email" v-model="user.email">
         <input type="password" name="" id="" placeholder="Senha" v-model="user.password">
-        <button @click="entrar">Conectar</button>
+        <button @click="entrar">Entrar</button>
         <p>Você não tem uma conta? Você pode <router-link to="/inscrever"> criar uma</router-link></p>
     </div>
 </template>
